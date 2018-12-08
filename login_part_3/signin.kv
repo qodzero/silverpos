@@ -1,0 +1,42 @@
+<SigninWindow>:
+    id: main_win
+    orientation: "vertical"
+    spacing: 10
+    space_x: self.size[0]/3
+
+    BoxLayout:
+        size_hint_y: None
+        height: 50
+        Label:
+            text: "Access Control"
+            bold: True
+            size_hint_x: .9
+        Button:
+            text: "x"
+            size_hint_x: .1
+    BoxLayout:
+        orientation: 'vertical'
+        padding: main_win.space_x, 10
+        #spacing: 20
+        BoxLayout:
+            orientation: "vertical"
+            spacing: 10
+            size_hint_y: None
+            height: 80
+            TextInput:
+                hint_text: "Username"
+                multiline: False
+            TextInput:
+                hint_text: "Password"
+                multiline: False
+        Label:
+            id: sp
+            size_hint_y: None
+            height: 40
+        Button:
+            text: "Sign In"
+            size_hint_y: None
+            height: 40
+        
+        Label:
+            id: sp2
