@@ -1,0 +1,22 @@
+<OperatorWindow>:
+    id: main_win
+    orientation: 'vertical'
+    canvas.before:
+        Color:
+            rgba: (1,1,1, 1)
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+    BoxLayout:
+        id: header
+        size_hint_y: None
+        height: 40
+        Label:
+            text: 'SilverPOS System'
+            size_hint_x: .9
+            bold: True
+        Button:
+            id: loggedin_user
+            text: 'jdoe'
+
