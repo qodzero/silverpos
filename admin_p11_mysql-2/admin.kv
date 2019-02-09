@@ -1,0 +1,107 @@
+<FlatButton@ButtonBehavior+Label>:
+    text: 'default'
+
+<AdminWindow>:
+    id: main_win
+    orientation: 'vertical'
+    canvas.before:
+        Color:
+            rgba: (1,1,1,1)
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    
+    BoxLayout:
+        id: top_nav
+        size_hint_y: None
+        height: 30
+        canvas.before:
+            Color:
+                rgba: (.06, .45, .45,1)
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        
+        FlatButton:
+            id: file_trigger
+            text: 'File'
+            on_release: file_dropdown.open(self)
+            size_hint: (.1,None)
+            height: 30
+
+            Widget:
+                on_parent: file_dropdown.dismiss()
+            
+                DropDown:
+                    id: file_dropdown
+                    Button:
+                        id: close
+                        text: 'quit'
+                        size_hint_y: None
+                        height: 30
+        Label:
+            text: 'Admin Dashboard'
+            bold: True
+            size_hint: (.9,None)
+            height: 30
+    BoxLayout:
+        id: content_nav
+        
+        BoxLayout:
+            id: nav_tabs
+            size_hint_x: .2
+            orientation: 'vertical'
+            spacing: 3
+            canvas.before:
+                Color:
+                    rgba: (.06, .52, .52,1)
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+
+            ToggleButton:
+                id: user_toggle
+                text: 'Manage Users'
+                size_hint_y: .1
+                state: 'down'
+                background_color: (.06, .47, .47, 1)
+                background_normal: ''
+                group: 'admin_navs'
+                on_state: root.change_screen(self)
+            ToggleButton:
+                id: products_toggle
+                text: 'Manage Products'
+                size_hint_y: .1
+                background_color: (.06, .47, .47, 1)
+                background_normal: ''
+                group: 'admin_navs'
+                on_state: root.change_screen(self)
+            ToggleButton:
+                id: analysis_toggle
+                text: 'Product Analysis'
+                size_hint_y: .1
+                background_color: (.06, .47, .47, 1)
+                background_normal: ''
+                group: 'admin_navs'
+                on_state: root.change_screen(self)
+            Label:
+                id: sp
+                text: ''
+                size_hint_y: .7
+        BoxLayout:
+            id: all_content
+            size_hint_x: .8
+            padding: (20,10)
+            ScreenManager:
+                id: scrn_mngr
+                Screen:
+                    id: scrn_content
+                    name: 'scrn_content'
+                Screen:
+                    id: scrn_product_content
+                    name: 'scrn_product_content'
+                Screen:
+                    id: scrn_analysis
+                    name: 'scrn_analysis'
+                
+
