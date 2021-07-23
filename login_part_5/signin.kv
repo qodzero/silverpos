@@ -48,12 +48,14 @@
                 id: username_field
                 hint_text: "Username"
                 multiline: False
+                write_tab: False
                 focus: True
                 on_text_validate: pwd_field.focus = True
             TextInput:
                 id: pwd_field
                 hint_text: "Password"
                 multiline: False
+                write_tab: False
                 password: True
                 on_text_validate: root.validate_user()
         Label:
