@@ -6,7 +6,7 @@ from kivy.lang import Builder
 import re
 from pymongo import MongoClient
 
-Builder.load_file('till_operator/operator.kv')
+
 
 class OperatorWindow(BoxLayout):
     def __init__(self, **kwargs):
@@ -85,3 +85,5 @@ class OperatorApp(App):
 if __name__=="__main__":
     oa = OperatorApp()
     oa.run()
+else:
+    Builder.load_file('till_operator/operator.kv')
